@@ -139,6 +139,29 @@ exports.listOrders = (req, res) => {
         });
 };
 
+exports.orderSearch = (req, res) => {
+    // create query object to hold search value and category value
+    const query ={}
+    //asign search value to query.name
+    if(req.query.search){
+        query.client_email = {$regex:req.query.search, $options:'i' }
+        // assigne category value to query.category
+        
+            // find the product badsed on query object with 2 properties
+            //search and category
+    
+            Order.find(query, (err, orders)=> {
+                if(err){
+                    return res.status(400).json({
+                        error:errorHandler(err)
+                    })
+                }
+                res.json(orders)
+            })
+        }
+    }
+
+
 // enum status values method
 
 exports.getStatusValues = (req, res) => {

@@ -5,7 +5,7 @@ const router = express.Router();
 const {requireSignin, adminMiddleware, isAdmin} = require('../controllers/auth')
 //also we gonna use user controllers as well
 const {addOrderToUserHistory } = require('../controllers/user')
-const { create,listOrders, getStatusValues, orderById, updateOrderStatus } = require('../controllers/order')
+const { create,listOrders, getStatusValues, orderById, updateOrderStatus , orderSearch} = require('../controllers/order')
 const { decreaseQuantity } = require("../controllers/product")
 const {orderValidator}= require('../validators/auth')
 
@@ -21,7 +21,7 @@ router.post(
  router.get('/order/list/:Id', requireSignin,listOrders);
  router.get('/order/status-values/:Id', requireSignin,adminMiddleware,getStatusValues);
  router.put('/order/:orderd/status/:Id',requireSignin, adminMiddleware, updateOrderStatus);
-
+ router.post("/order/search", orderSearch);
 
 
 
