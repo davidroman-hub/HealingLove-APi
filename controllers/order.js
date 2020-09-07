@@ -162,6 +162,11 @@ exports.orderSearch = (req, res) => {
     }
 
 
+    exports.read = (req, res) => {
+        //req.order = undefined;
+        return res.json(req.order)
+    }
+
 // enum status values method
 
 exports.getStatusValues = (req, res) => {
