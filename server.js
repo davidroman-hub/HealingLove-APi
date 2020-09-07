@@ -52,9 +52,9 @@ app.use('/api',orderRoutes)
 
 
 const port = process.env.PORT || 8000;
-app.listen(port, () => {
-    console.log(`API is running on port ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`API is running on port ${port}`);
+// });
 
 app.listen(port, '0.0.0.0', () => {
     console.log(`API is running on port ${port}`);
